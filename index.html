@@ -7,21 +7,40 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet"/>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet"/> -->
+
     <style>
       body {
         line-height: 1.4;
         max-width: 600px;
         margin: 40px auto;
-        font-family: "EB Garamond", "Garamond", serif;
+        font-family: "EB Garamond", "Garamond", "Matemasie", "Jersey 10", serif;
         font-size: 16px;
+        background-color: #FAF0E6;
+        position: relative;
       }
       main {
         margin-left: 16px;
         margin-right: 16px;
+        margin-bottom: 46px;
+      }
+      footer {
+        bottom: 0;
+        width: 100%;
+        background-color: #DDD;
+        height: 30px;
+        /* height: 144px; */
+        position: fixed;
+        left: 0;
+      }
+      footer > #text {
+        text-align: center;
+        font-size: 14px;
+        /* background-color: #FFFFFF; */
+        margin-top: 6px;
+        margin-bottom: 6px;
       }
       #title {
         display: flex;
@@ -30,7 +49,7 @@
       }
       #title > h1 {
         font-size: 32px;
-        margin-left: 58px;
+        margin-left: 68px;
       }
       #title > img {
         border-radius: 100%;
@@ -38,7 +57,20 @@
         height: 40px;
         align-self: center;
         position: absolute;
-        /* margin-left: -58px; */
+        margin-left: 10px;
+      }
+      #apps {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+      }
+      #stackapp {
+        display: flex;
+        align-items: center;
+        height: ;
+        justify-content: flex-start;
+        gap: 10px;
+        margin-left: 20px;
       }
       table {
         width: 100%;
@@ -51,7 +83,8 @@
         line-height: 1.4;
       }
       table tr td:first-child {
-        width: 160px;
+        /* width: 160px; */
+        width: 60%;
       }
       table tr td:first-child::before {
         content: "• ";
@@ -59,6 +92,33 @@
         margin-right: 4px;
       }
 
+      /* :link { color: #0000EE; } */
+      /* :visited { color: #551A8B; } */
+      /* :link:active, :visited:active { color: #FF0000; } */
+      .page-link {
+        color: black;
+        text-decoration: none;
+        border-bottom: 1px solid #66A8F5;
+      }
+      .page-link:visited { 
+        color: black;
+      }
+      .page-link:hover {
+        color: #66A8F5;
+      }
+      .img-link {
+        width: 42px;
+        height: 42px;
+      }
+      .img-link > img {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #000000;
+        border-radius: 6px;
+      }
+      .img-link:hover > img {
+        border: 1px solid #66A8F5;
+      }
       @media (max-width: 600px) {
         body {
           margin: 20px;
@@ -66,15 +126,15 @@
         }
         #title > h1 {
           font-size: 28px;
+          margin-left: 60px;
         }
         #title > img {
           width: 30px;
           height: 30px;
-          margin-left: -48px;
         }
-        table tr td:first-child {
+        /* table tr td:first-child {
           width: 60%;
-        }
+        } */
       }
     </style>
     <script>
@@ -114,11 +174,11 @@
         <li>Living in Portugal since 2021.</li>
         <li>
           Married to
-          <a href="https://www.linkedin.com/in/rafaela-pires-6693a317a/">Rafaela Pires</a>.
+          <a class="page-link" href="https://www.linkedin.com/in/rafaela-pires-6693a317a/">Rafaela Pires</a> ❤️.
         </li>
         <li>
           Swift developer
-          <span id="swiftDeveloperTime">since 2015-01-07</span>.
+          <span id="swiftDeveloperTime">since 01/07/2015</span>.
         </li>
         <li>Apple Developer Academy Alumni.</li>
       </ul>
@@ -167,13 +227,42 @@
         </tr>
       </table>
 
+      <p>My apps:</p>
+      <div id="apps">
+        <div id="stackapp">
+          <a class="img-link" href="https://apps.apple.com/pt/app/smart-qrcode-read-your-code/id1521905502?l=en-GB"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/82/15/9e/82159ef2-8652-baa0-54d8-81ebeacee85d/AppIcon-Main-0-1x_U007emarketing-0-10-0-85-220.png/246x0w.webp" alt="App Icon" /></a>
+          <a class="page-link" href="https://apps.apple.com/pt/app/smart-qrcode-read-your-code/id1521905502?l=en-GB">Smart QRCode</a>
+        </div>
+      </div>
+      </div>
+
+
       <p>Find me as <b>@fernandocani</b> on the web:</p>
       <ul>
-        <li><a href="https://x.com/fernandocani">X</a></li>
-        <li><a href="https://github.com/fernandocani">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/fernandocani/">LinkedIn</a></li>
-        <li><a href="https://drive.google.com/file/d/123vBD7PNUCzrrmaETjD1gVUYoI9nLHxL/view?usp=sharing" download><button style="margin-top: 20px;">Download CV</button></a></li>
-      </ul>    
+        <li>
+          <a class="page-link" href="https://x.com/fernandocani">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" role="img">
+              <g clip-path="url(#clip0_1668_3024)">
+                <path d="M9.52217 6.77143L15.4785 0H14.0671L8.89516 5.87954L4.76437 0H0L6.24656 8.8909L0 15.9918H1.41155L6.87321 9.78279L11.2356 15.9918H16L9.52183 6.77143H9.52217ZM7.58887 8.96923L6.95596 8.0839L1.92015 1.03921H4.0882L8.15216 6.7245L8.78507 7.60983L14.0677 14.9998H11.8997L7.58887 8.96957V8.96923Z" fill="currentColor"></path>
+              </g>
+              <defs>
+                <clipPath id="clip0_1668_3024">
+                  <rect width="16" height="16" fill="white"></rect>
+                </clipPath>
+              </defs>
+            </svg>
+            / Twitter
+          </a>
+        </li>
+        <li><a class="page-link" href="https://github.com/fernandocani">GitHub</a></li>
+        <li><a class="page-link" href="https://www.linkedin.com/in/fernandocani/">LinkedIn</a></li>
+        <li><a class="page-link" href="https://drive.google.com/file/d/123vBD7PNUCzrrmaETjD1gVUYoI9nLHxL/view?usp=sharing">Download CV on Google Drive</a></li>
+      </ul>   
     </main>
+    <footer>
+      <p id="text">
+        Inspired by <b>Andreas Kling</b> <a class="page-link" href="https://awesomekling.com/">https://awesomekling.com/</a>
+      </p>
+    </footer>
   </body>
 </html>
