@@ -3,20 +3,19 @@
   <head>
     <link rel="icon" href="https://media.licdn.com/dms/image/v2/C5603AQFxYoiQTxor9g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516944860412?e=1729728000&v=beta&t=GsMZgVdRnbUvxY_B6_6JCf5Jsy_BjmmS-_STr4u7_AQ" />
     <title>Fernando Cani</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"> 
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet"/>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet"> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet"/> -->
 
     <style>
       body {
         line-height: 1.4;
         max-width: 600px;
         margin: 40px auto;
-        font-family: "EB Garamond", "Garamond", "Matemasie", "Jersey 10", serif;
+        font-family: "EB Garamond", "Garamond", serif;
         font-size: 16px;
         background-color: #FAF0E6;
         position: relative;
@@ -24,21 +23,20 @@
       main {
         margin-left: 16px;
         margin-right: 16px;
-        margin-bottom: 46px;
+        padding-top: 8px;
+        padding-bottom: 46px;
       }
       footer {
         bottom: 0;
         width: 100%;
-        background-color: #DDD;
+        background-color: #DDDDDD;
         height: 30px;
-        /* height: 144px; */
         position: fixed;
         left: 0;
       }
       footer > #text {
         text-align: center;
         font-size: 14px;
-        /* background-color: #FFFFFF; */
         margin-top: 6px;
         margin-bottom: 6px;
       }
@@ -67,7 +65,6 @@
       #stackapp {
         display: flex;
         align-items: center;
-        height: ;
         justify-content: flex-start;
         gap: 10px;
         margin-left: 20px;
@@ -76,20 +73,21 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 8px;
-        margin-left: 22px;
       }
       table tr td {
         padding: 0;
-        line-height: 1.4;
+        line-height: 1.6;
       }
       table tr td:first-child {
-        /* width: 160px; */
-        width: 60%;
+        padding-left: 22px;
       }
-      table tr td:first-child::before {
-        content: "• ";
-        font-size: 18px;
-        margin-right: 4px;
+      table tr td:last-child {
+        padding-right: 22px;
+        width: 30%;
+        min-width: 120px;
+      }
+      #companyDate {
+        text-align: right;
       }
 
       /* :link { color: #0000EE; } */
@@ -119,6 +117,7 @@
       .img-link:hover > img {
         border: 1px solid #66A8F5;
       }
+
       @media (max-width: 600px) {
         body {
           margin: 20px;
@@ -132,9 +131,6 @@
           width: 30px;
           height: 30px;
         }
-        /* table tr td:first-child {
-          width: 60%;
-        } */
       }
     </style>
     <script>
@@ -186,44 +182,44 @@
       <p>Work experience:</p>
       <table>
         <tr>
-          <td>GRiT @ Bryj.ai</td>
-          <td>06/2024 - Ongoing</td>
+          <td>🇵🇹 GRiT @ Bryj.ai</td>
+          <td id="companyDate">06/2024 - Ongoing</td>
         </tr>
         <tr>
-          <td>GRiT @ TimWe</td>
-          <td>01/2023 - 02/2024</td>
+          <td>🇵🇹 GRiT @ TimWe</td>
+          <td id="companyDate">01/2023 - 02/2024</td>
         </tr>
         <tr>
-          <td>GRiT @ Bring</td>
-          <td>08/2021 - 12/2022</td>
+          <td>🇵🇹 GRiT @ Bring</td>
+          <td id="companyDate">08/2021 - 12/2022</td>
         </tr>
         <tr>
-          <td>IBM @ Next</td>
-          <td>01/2021 - 07/2021</td>
+          <td>🇧🇷 IBM @ Next</td>
+          <td id="companyDate">01/2021 - 07/2021</td>
         </tr>
         <tr>
-          <td>IBM @ Santander</td>
-          <td>05/2020 - 12/2020</td>
+          <td>🇧🇷 IBM @ Santander</td>
+          <td id="companyDate">05/2020 - 12/2020</td>
         </tr>
         <tr>
-          <td>BRQ @ Itaú</td>
-          <td>08/2019 - 05/2020</td>
+          <td>🇧🇷 BRQ @ Itaú</td>
+          <td id="companyDate">08/2019 - 05/2020</td>
         </tr>
         <tr>
-          <td>Livetouch</td>
-          <td>10/2016 - 07/2019</td>
+          <td>🇧🇷 Livetouch</td>
+          <td id="companyDate">10/2016 - 07/2019</td>
         </tr>
         <tr>
-          <td>Minauro</td>
-          <td>07/2016 - 09/2016</td>
+          <td>🇧🇷 Minauro</td>
+          <td id="companyDate">07/2016 - 09/2016</td>
         </tr>
         <tr>
-          <td>Mucca.co</td>
-          <td>10/2015 - 03/2016</td>
+          <td>🇧🇷 Mucca.co</td>
+          <td id="companyDate">10/2015 - 03/2016</td>
         </tr>
         <tr>
-          <td>Atrativa Web</td>
-          <td>07/2015 - 10/2015</td>
+          <td>🇧🇷 Atrativa Web</td>
+          <td id="companyDate">07/2015 - 10/2015</td>
         </tr>
       </table>
 
