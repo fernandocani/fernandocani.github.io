@@ -16,3 +16,32 @@ function updateSwiftDeveloperTime() {
 
 document.addEventListener("DOMContentLoaded", updateSwiftDeveloperTime);
 setInterval(updateSwiftDeveloperTime, 86400000);
+
+/**
+ * @param {Int} type Type of Value (0 = null, 1 = value, 2 = href)
+ * @param {string} elementID Element ID
+ */
+function copyText(type, elementID) {
+    
+    let Text = document.getElementById(elementID);
+    switch(type) {
+    case 0:
+        alert( 'Invalid value' );
+        break;
+    case 1:
+        if (Text.value) {
+            navigator.clipboard.writeText(Text.value);
+            alert( 'Copied' );
+        }
+        break;
+    case 2:
+        if (Text.href) {
+            navigator.clipboard.writeText(Text.href);
+            alert( 'Copied' );
+        }
+        break;
+    default:
+        alert( 'Unkown value' );
+        break;
+    }
+}
