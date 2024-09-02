@@ -10,8 +10,21 @@ function calculateTimeSince(dateString) {
     return `for ${years} years, ${months} months, ${days} days`;
 }
 
+function calculateLifePercentage(birthday, jobStartDate) {
+    const birthDate = new Date(birthday);
+    const jobStart = new Date(jobStartDate);
+    const currentDate = new Date();
+
+    const totalLifeDuration = currentDate - birthDate;
+    const jobDuration = currentDate - jobStart;
+
+    const percentage = (jobDuration / totalLifeDuration) * 100;
+    return "(" + percentage.toFixed(1) + "%" + ")";
+}
+
 function updateSwiftDeveloperTime() {
-    document.getElementById("swiftDeveloperTime").innerHTML = calculateTimeSince("2015-07-01");
+    document.getElementById("swiftDeveloperTime").innerHTML = calculateTimeSince(1435708800000);
+    document.getElementById("swiftDeveloperPercentage").innerHTML = calculateLifePercentage(719942400000, 1435708800000);
 }
 
 document.addEventListener("DOMContentLoaded", updateSwiftDeveloperTime);
