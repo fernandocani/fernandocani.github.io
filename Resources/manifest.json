@@ -3,9 +3,9 @@
     "short_name": "Fernando C.",
     "icons": [
         {
-            "src": "profile.png",
+            "src": "profile.jpg",
             "sizes": "178x178",
-            "type": "image/png"
+            "type": "image/jpg"
         }
     ],
     "theme_color": "#FAF0E6",
