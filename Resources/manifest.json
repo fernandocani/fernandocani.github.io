@@ -1,0 +1,14 @@
+{
+    "name": "Fernando Cani",
+    "short_name": "Fernando C.",
+    "icons": [
+        {
+            "src": "profile.png",
+            "sizes": "178x178",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#367fa9",
+    "background_color": "#367fa9",
+    "display": "standalone"
+}
