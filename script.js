@@ -43,26 +43,34 @@ setInterval(updateSwiftDeveloperTime, 86400000);
  * @param {string} elementID Element ID
  */
 function copyText(type, elementID) {
-    
     let Text = document.getElementById(elementID);
     switch(type) {
     case 0:
-        alert( 'Invalid value' );
+        showToast('Invalid type');
         break;
     case 1:
         if (Text.value) {
             navigator.clipboard.writeText(Text.value);
-            alert( 'Copied' );
+            showToast('Copied');
         }
         break;
     case 2:
         if (Text.href) {
             navigator.clipboard.writeText(Text.href);
-            alert( 'Copied' );
+            showToast('Copied');
         }
         break;
     default:
-        alert( 'Unkown value' );
+        showToast('Unknown value');
         break;
     }
+}
+
+function showToast(message) {
+    var toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.className = "toast show";
+    setTimeout(function() {
+        toast.className = toast.className.replace("show", "");
+    }, 3000);
 }
