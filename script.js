@@ -7,7 +7,7 @@ function calculateTimeSince(dateString) {
     const months = Math.floor((diff % (365.25 * 86400000)) / (30.44 * 86400000));
     const days = Math.floor((diff % (30.44 * 86400000)) / 86400000);
 
-    return `for ${years} years, ${months} months, ${days} days`;
+    return `${years} years, ${months} months, ${days} days`;
 }
 
 function calculateLifePercentage(birthday, jobStartDate) {
@@ -23,8 +23,16 @@ function calculateLifePercentage(birthday, jobStartDate) {
 }
 
 function updateSwiftDeveloperTime() {
-    document.getElementById("swiftDeveloperTime").innerHTML = calculateTimeSince(1435708800000);
-    document.getElementById("swiftDeveloperPercentage").innerHTML = calculateLifePercentage(719942400000, 1435708800000);
+    const timeText = calculateTimeSince(1435708800000); // "for 9 years, 2 months, 3 days"
+    const percentageText = calculateLifePercentage(719942400000, 1435708800000); // "(28.8%)"
+
+    // Split the time text into segments at commas and wrap them in <span> with nowrap styles
+    const parts = timeText.split(", ");
+    const formattedText = `for <span class="nowrap">${parts[0]}</span>, 
+                           <span class="nowrap">${parts[1]}</span>, 
+                           <span class="nowrap">${parts[2]} ${percentageText}</span>`;
+
+    document.getElementById("swiftDeveloperTime").innerHTML = formattedText;
 }
 
 document.addEventListener("DOMContentLoaded", updateSwiftDeveloperTime);

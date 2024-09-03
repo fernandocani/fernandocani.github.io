@@ -142,13 +142,21 @@ table tr td:last-child {
     border: 1px solid #66A8F5;
 }
 
+#swiftDeveloperTime {
+    white-space: normal; /* Default behavior allowing line breaks */
+}
+
+.nowrap {
+    white-space: nowrap; /* Prevents line breaks within these spans */
+}
+
 [popover]::backdrop {
     backdrop-filter: blur(1.5px);
 }
 
 @media (max-width: 600px) {
     body {
-        margin: 20px;
+        margin: 18px;
         font-size: 14px;
     }
 
