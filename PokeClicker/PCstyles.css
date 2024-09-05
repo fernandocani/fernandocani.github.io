@@ -1,5 +1,8 @@
 body {
     padding: 10px;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #FAF0E6;
 }
 
 .buttonsHeader {

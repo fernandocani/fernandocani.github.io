@@ -3,6 +3,7 @@
 <head>
     <title>PokeClicker</title>
     <link rel="stylesheet" type="text/css" href="PCstyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 </head>
 <body>
     <script src="PKscript.js"></script>
@@ -21,48 +22,48 @@
     
     <div id="outputResult">
         <!-- Player -->
-        <div class="card player expanded" style="height: auto;">
+        <div class="card player">
             <div id="card_header">
                 <h3>Player</h3>
                 <button onclick="toggleCardView('player')" id="toggleButton">Toggle View</button>
             </div>
-            <div class="card player card_content" id="card_content" style="visibility: visible;"></div>
+            <div class="card player card_content" id="card_content"></div>
         </div>
         <br>
         <!-- Pokeballs -->
-        <div class="card pokeballs expanded" style="height: auto;">
+        <div class="card pokeballs">
             <div id="card_header">
                 <h3>Pokéballs</h3>
                 <button onclick="toggleCardView('pokeballs')" id="toggleButton">Toggle View</button>
             </div>
-            <div class="card pokeballs card_content" id="card_content" style="visibility: visible;"></div>
+            <div class="card pokeballs card_content" id="card_content"></div>
         </div>
         <br>
         <!-- Key Items -->
-        <div class="card keyitems expanded" style="height: auto;">
+        <div class="card keyitems">
             <div id="card_header">
                 <h3>Key Items</h3>
                 <button onclick="toggleCardView('keyitems')" id="toggleButton">Toggle View</button>
             </div>
-            <div class="card keyitems card_content" id="card_content" style="visibility: visible;"></div>
+            <div class="card keyitems card_content" id="card_content"></div>
         </div>
         <br>
         <!-- Challenges -->
-        <div class="card challenges expanded" style="height: auto;">
+        <div class="card challenges">
             <div id="card_header">
                 <h3>Challenges</h3>
                 <button onclick="toggleCardView('challenges')" id="toggleButton">Toggle View</button>
             </div>
-            <div class="card challenges card_content" id="card_content" style="visibility: visible;"></div>
+            <div class="card challenges card_content" id="card_content"></div>
         </div>
         <br>
         <!-- Json -->
-        <div class="card json expanded" style="height: auto;">
+        <div class="card json expanded">
             <div id="card_header">
                 <h3>JSON</h3>
                 <button onclick="toggleCardView('json')" id="toggleButton">Toggle View</button>
             </div>
-            <pre class="card json card_content" id="card_json" style="visibility: visible;"></pre>
+            <pre class="card json card_content" id="card_json"></pre>
         </div>
     </div>
 </body>

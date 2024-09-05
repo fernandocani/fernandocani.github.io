@@ -1,8 +1,9 @@
 let jsonData = {};
-// let shouldAutoLoadExample = false;
-let shouldAutoLoadExample = true;
+let shouldAutoLoadExample = false;
+// let shouldAutoLoadExample = true;
 
 window.onload = function() {
+    clearFileAndOutput();
     if (shouldAutoLoadExample) {
         fetch('Resources/example.txt')
         .then(response => response.text())
@@ -34,12 +35,24 @@ function handleFileContents(event) {
     const contents = event.target.result;
     const decodedContents = atob(contents);
     jsonData = JSON.parse(decodedContents);
+    
     createPlayerCard('card player card_content', jsonData);
     createPokeballCard('card pokeballs card_content', jsonData.save.pokeballs.pokeballs);
     createCardToggles('card keyitems card_content', jsonData.save.keyItems);
     createCardToggles('card challenges card_content', jsonData.save.challenges.list);
+    
     updateOutput();
     updateExportButtonState();
+    
+    toggleCardView('player');
+    toggleCardView('pokeballs');
+    toggleCardView('pokeballs');
+    toggleCardView('keyitems');
+    toggleCardView('keyitems');
+    toggleCardView('challenges');
+    toggleCardView('challenges');
+    toggleCardView('json');
+    toggleCardView('json');
 }
 
 function updateOutput() {
@@ -176,11 +189,18 @@ function createCardToggles(className, values) {
 
 function clearFileAndOutput() {
     document.getElementById("fileUpload").value = "";
-    document.getElementById("card_json").innerText = "";
     document.getElementById("fileloaded").style.display = "none";
     document.getElementById("outputResult").style.display = "none";
     document.getElementsByClassName("card player card_content")[0].innerHTML = "";
+    document.getElementsByClassName("card pokeballs card_content")[0].innerHTML = "";
+    document.getElementsByClassName("card keyitems card_content")[0].innerHTML = "";
     document.getElementsByClassName("card challenges card_content")[0].innerHTML = "";
+    document.getElementById("card_json").innerText = "";
+    toggleCardView('player', true);
+    toggleCardView('pokeballs', true);
+    toggleCardView('keyitems', true);
+    toggleCardView('challenges', true);
+    toggleCardView('json', true);
 }
 
 function copyToClipboard() {
@@ -194,16 +214,21 @@ function updateExportButtonState() {
     exportButton.disabled = Object.keys(jsonData).length === 0;
 }
 
-function toggleCardView(className) {
+function toggleCardView(className, clearModifications) {
     const element = document.getElementsByClassName('card ' + className)[0];
     const content = document.getElementsByClassName('card ' + className + ' card_content')[0];
-    element.classList.toggle('expanded')
-    if (element.classList.contains('expanded')) {
-        element.style.height = 'auto';
-        content.style.visibility = 'visible';
+    if (clearModifications === true) {
+        element.style.height = '';
+        content.style.visibility = '';
     } else {
-        element.style.height = '50px';
-        content.style.visibility = 'hidden';
+        element.classList.toggle('expanded')
+        if (element.classList.contains('expanded')) {
+            element.style.height = 'auto';
+            content.style.visibility = 'visible';
+        } else {
+            element.style.height = '50px';
+            content.style.visibility = 'hidden';
+        }
     }
 }
 
