@@ -17,7 +17,7 @@
                 <button onclick="clearFileAndOutput()" id="clearButton">Clear</button>
             </div>
         </div>
-        <button onclick="exportFile(exportInJson=true)" id="exportButton" disabled>Export</button>
+        <button onclick="exportFile(exportInJson=false)" id="exportButton" disabled>Export</button>
     </div>
     <br><br><br>
     <div id="outputResult">
@@ -30,6 +30,15 @@
             <div class="card player card_content" id="card_content"></div>
         </div>
         <br>
+        <!-- Currencies -->
+        <div class="card currencies">
+            <div id="card_header">
+                <h3>Currencies</h3>
+                <button onclick="toggleCardView('currencies')" id="toggleButton">Toggle View</button>
+            </div>
+            <div class="card currencies card_content" id="card_content"></div>
+        </div>
+        <br>
         <!-- Pokeballs -->
         <div class="card pokeballs">
             <div id="card_header">
@@ -37,6 +46,15 @@
                 <button onclick="toggleCardView('pokeballs')" id="toggleButton">Toggle View</button>
             </div>
             <div class="card pokeballs card_content" id="card_content"></div>
+        </div>
+        <br>
+        <!-- Farming -->
+        <div class="card farming">
+            <div id="card_header">
+                <h3>Farming</h3>
+                <button onclick="toggleCardView('farming')" id="toggleButton">Toggle View</button>
+            </div>
+            <div class="card farming card_content" id="card_content"></div>
         </div>
         <br>
         <!-- Key Items -->
