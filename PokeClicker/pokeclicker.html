@@ -8,7 +8,7 @@
 <body>
     <script src="PKscript.js"></script>
     
-    <div class="buttonsHeader">
+    <div class="card buttonsHeader">
         <div id="choosefile">
             <input type="file" id="fileUpload" onchange="handleFileUpload(event)">
             
@@ -19,7 +19,7 @@
         </div>
         <button onclick="exportFile(exportInJson=true)" id="exportButton" disabled>Export</button>
     </div>
-    
+    <br><br><br>
     <div id="outputResult">
         <!-- Player -->
         <div class="card player">
@@ -58,7 +58,7 @@
         </div>
         <br>
         <!-- Json -->
-        <div class="card json expanded">
+        <div class="card json">
             <div id="card_header">
                 <h3>JSON</h3>
                 <button onclick="toggleCardView('json')" id="toggleButton">Toggle View</button>
