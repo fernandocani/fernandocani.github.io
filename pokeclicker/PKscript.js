@@ -1,6 +1,6 @@
 let jsonData = {};
-let shouldAutoLoadExample = false;
-// let shouldAutoLoadExample = true;
+// let shouldAutoLoadExample = false;
+let shouldAutoLoadExample = true;
 
 window.onload = function() {
     clearFileAndOutput();
@@ -29,7 +29,6 @@ function handleFileUpload(event) {
     
     reader.readAsText(file);
 }
-
 
 function handleFileContents(event) {
     const contents = event.target.result;
@@ -343,14 +342,17 @@ function toggleCardView(className, clearModifications) {
     const content = document.getElementsByClassName('card ' + className + ' card_content')[0];
     if (clearModifications === true) {
         element.style.height = '';
+        element.style.overflow = '';
         content.style.visibility = '';
     } else {
         element.classList.toggle('expanded')
         if (element.classList.contains('expanded')) {
             element.style.height = 'auto';
+            element.style.overflow = 'visible';
             content.style.visibility = 'visible';
         } else {
             element.style.height = '50px';
+            element.style.overflow = 'hidden';
             content.style.visibility = 'hidden';
         }
     }

@@ -1,88 +1,114 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>PokeClicker</title>
-    <link rel="stylesheet" type="text/css" href="PCstyles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-</head>
-<body>
-    <script src="PKscript.js"></script>
-    
-    <div class="card buttonsHeader">
-        <div id="choosefile">
-            <input type="file" id="fileUpload" onchange="handleFileUpload(event)">
-            
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="icon" href="Resources/favicon.ico" sizes="any">
+
+        <title>PokéClicker</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        
+        <link rel="stylesheet" type="text/css" href="PCstyles.css">
+        <script src="PKscript.js"></script>
+    </head>
+
+    <body>
+        <!-- Header -->
+        <header>
+            <div id="banner">
+                <img
+                    src="Resources/pokeclickerlogo.png"
+                />
+            </div>
+        </header>
+        
+        <br>
+        <br>
+        
+        <!-- Buttons -->
+        <div class="card buttonsHeader">
+            <div id="choosefile">
+                <input type="file" id="fileUpload" onchange="handleFileUpload(event)">
+            </div>
             <div id="fileloaded" style="display: none;">
                 <button onclick="copyToClipboard()" id="copyButton">Copy</button>
                 <button onclick="clearFileAndOutput()" id="clearButton">Clear</button>
+                <button onclick="exportFile(exportInJson=false)" id="exportButton" disabled>Export</button>
             </div>
         </div>
-        <button onclick="exportFile(exportInJson=false)" id="exportButton" disabled>Export</button>
-    </div>
-    <br><br><br>
-    <div id="outputResult">
-        <!-- Player -->
-        <div class="card player">
-            <div id="card_header">
-                <h3>Player</h3>
-                <button onclick="toggleCardView('player')" id="toggleButton">Toggle View</button>
-            </div>
-            <div class="card player card_content" id="card_content"></div>
-        </div>
+        
         <br>
-        <!-- Currencies -->
-        <div class="card currencies">
-            <div id="card_header">
-                <h3>Currencies</h3>
-                <button onclick="toggleCardView('currencies')" id="toggleButton">Toggle View</button>
-            </div>
-            <div class="card currencies card_content" id="card_content"></div>
-        </div>
         <br>
-        <!-- Pokeballs -->
-        <div class="card pokeballs">
-            <div id="card_header">
-                <h3>Pokéballs</h3>
-                <button onclick="toggleCardView('pokeballs')" id="toggleButton">Toggle View</button>
-            </div>
-            <div class="card pokeballs card_content" id="card_content"></div>
-        </div>
         <br>
-        <!-- Farming -->
-        <div class="card farming">
-            <div id="card_header">
-                <h3>Farming</h3>
-                <button onclick="toggleCardView('farming')" id="toggleButton">Toggle View</button>
+        
+        <!-- Output -->
+        <div id="outputResult">
+            <!-- Player -->
+            <div class="card player">
+                <div id="card_header">
+                    <h3>Player</h3>
+                    <button onclick="toggleCardView('player')" id="toggleButton">Toggle View</button>
+                </div>
+                <div class="card player card_content" id="card_content"></div>
             </div>
-            <div class="card farming card_content" id="card_content"></div>
-        </div>
-        <br>
-        <!-- Key Items -->
-        <div class="card keyitems">
-            <div id="card_header">
-                <h3>Key Items</h3>
-                <button onclick="toggleCardView('keyitems')" id="toggleButton">Toggle View</button>
+            <br>
+            <!-- Currencies -->
+            <div class="card currencies">
+                <div id="card_header">
+                    <h3>Currencies</h3>
+                    <button onclick="toggleCardView('currencies')" id="toggleButton">Toggle View</button>
+                </div>
+                <div class="card currencies card_content" id="card_content"></div>
             </div>
-            <div class="card keyitems card_content" id="card_content"></div>
-        </div>
-        <br>
-        <!-- Challenges -->
-        <div class="card challenges">
-            <div id="card_header">
-                <h3>Challenges</h3>
-                <button onclick="toggleCardView('challenges')" id="toggleButton">Toggle View</button>
+            <br>
+            <!-- Pokeballs -->
+            <div class="card pokeballs">
+                <div id="card_header">
+                    <h3>Pokéballs</h3>
+                    <button onclick="toggleCardView('pokeballs')" id="toggleButton">Toggle View</button>
+                </div>
+                <div class="card pokeballs card_content" id="card_content"></div>
             </div>
-            <div class="card challenges card_content" id="card_content"></div>
-        </div>
-        <br>
-        <!-- Json -->
-        <div class="card json">
-            <div id="card_header">
-                <h3>JSON</h3>
-                <button onclick="toggleCardView('json')" id="toggleButton">Toggle View</button>
+            <br>
+            <!-- Farming -->
+            <div class="card farming">
+                <div id="card_header">
+                    <h3>Farming</h3>
+                    <button onclick="toggleCardView('farming')" id="toggleButton">Toggle View</button>
+                </div>
+                <div class="card farming card_content" id="card_content"></div>
             </div>
-            <pre class="card json card_content" id="card_json"></pre>
+            <br>
+            
+            <!-- Key Items -->
+            <div class="card keyitems">
+                <div id="card_header">
+                    <h3>Key Items</h3>
+                    <button onclick="toggleCardView('keyitems')" id="toggleButton">Toggle View</button>
+                </div>
+                <div class="card keyitems card_content" id="card_content"></div>
+            </div>
+            <br>
+
+            <!-- Challenges -->
+            <div class="card challenges">
+                <div id="card_header">
+                    <h3>Challenges</h3>
+                    <button onclick="toggleCardView('challenges')" id="toggleButton">Toggle View</button>
+                </div>
+                <div class="card challenges card_content" id="card_content"></div>
+            </div>
+            <br>
+
+            <!-- Json -->
+            <div class="card json">
+                <div id="card_header">
+                    <h3>JSON</h3>
+                    <button onclick="toggleCardView('json')" id="toggleButton">Toggle View</button>
+                </div>
+                <pre class="card json card_content" id="card_json"></pre>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
