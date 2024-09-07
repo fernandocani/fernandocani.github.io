@@ -29,8 +29,8 @@ function updateSwiftDeveloperTime() {
     // Split the time text into segments at commas and wrap them in <span> with nowrap styles
     const parts = timeText.split(", ");
     const formattedText = `for <span class="nowrap">${parts[0]}</span>, 
-                           <span class="nowrap">${parts[1]}</span>, 
-                           <span class="nowrap">${parts[2]} ${percentageText}</span>`;
+    <span class="nowrap">${parts[1]}</span>, 
+    <span class="nowrap">${parts[2]} ${percentageText}</span>`;
 
     document.getElementById("swiftDeveloperTime").innerHTML = formattedText;
 }
