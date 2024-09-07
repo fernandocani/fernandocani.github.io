@@ -1,6 +1,6 @@
 let jsonData = {};
-// let shouldAutoLoadExample = false;
-let shouldAutoLoadExample = true;
+let shouldAutoLoadExample = false;
+// let shouldAutoLoadExample = true;
 
 window.onload = function() {
     clearFileAndOutput();
