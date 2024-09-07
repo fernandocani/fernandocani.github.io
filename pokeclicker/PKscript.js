@@ -91,10 +91,12 @@ function createPlayerCard(className, values) {
     const labelName = createTextRow('Name:', values.save.profile.name);
     const labelTrainerID = createTextRow('Trainer ID:', values.player.trainerId);
     const labelGameVersion = createTextRow('Game Version:', values.save.update.version);
+    const labelLastSeen = createTextRow('Last Seen:', formatDate(values.player._lastSeen));
     
     section.appendChild(labelTrainerID);
     section.appendChild(labelName);
     section.appendChild(labelGameVersion);
+    section.appendChild(labelLastSeen);
 }
 
 function createCurrencyCard(className, values) {
@@ -376,7 +378,7 @@ function exportFile(exportInJson) {
     const blob = new Blob([fileContent], { type: 'text/plain' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = 'E_'+fileName;
+    link.download = '[E]'+fileName;
     link.click();
 }
 
@@ -403,4 +405,10 @@ function getValueAtPath(obj, path) {
         current = current[keys[i]];
     }
     return current;
+}
+
+function formatDate(timestamp) {
+    const date = new Date(timestamp);
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
 }
