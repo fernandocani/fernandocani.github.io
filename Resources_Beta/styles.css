@@ -1,0 +1,239 @@
+body {
+    line-height: 1.4;
+    max-width: 600px;
+    margin: 40px auto;
+    font-family: "EB Garamond", "Garamond", serif;
+    font-size: 16px;
+    background-color: #FAF0E6;
+    position: relative;
+}
+
+main {
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 46px;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #DDDDDD;
+    height: 30px;
+    position: fixed;
+    left: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+footer>#text {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+#title {
+    display: flex;
+    margin-bottom: -8px;
+    position: relative;
+}
+
+#title>h1 {
+    font-size: 32px;
+    margin-left: 88px;
+}
+
+#title > img {
+    border-radius: 20%;
+    width: 60px;
+    height: 60px;
+    align-self: center;
+    position: absolute;
+    margin-left: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#apps {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+#stackapp {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+table tr td {
+    padding: 0;
+    line-height: 1.6;
+}
+
+table tr td:first-child {
+    padding-left: 22px;
+}
+
+table tr td:last-child {
+    padding-right: 22px;
+    width: 30%;
+    min-width: 120px;
+}
+
+#companyDate {
+    text-align: right;
+}
+
+/* :link { color: #0000EE; } */
+/* :visited { color: #551A8B; } */
+/* :link:active, :visited:active { color: #FF0000; } */
+.page-link {
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid #66A8F5;
+}
+
+.page-link:visited {
+    color: black;
+}
+
+.page-link:hover {
+    color: #66A8F5;
+}
+
+.img-link {
+    width: 42px;
+    height: 42px;
+    position: relative;
+    display: inline-block;
+}
+
+.img-link::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94, 247, 1) 17.8%, rgba(2, 245, 255, 1) 100.2%);
+    filter: blur(8px);
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 6px;
+}
+
+.img-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    position: relative;
+    display: block;
+}
+
+.img-link:hover>img {
+    border: 1px solid #66A8F5;
+}
+
+#swiftDeveloperTime {
+    white-space: normal;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.btn_pasteboard {
+    cursor: pointer;
+}
+
+.btn_pasteboard:hover {
+    color: #66A8F5;
+}
+
+.btn_pasteboard.btn1 {
+    padding-left: 0px;
+}
+
+.btn_pasteboard.btn2 {
+    padding-left: 24px;
+}
+
+.btn_pasteboard.btn3 {
+    padding-left: 41px;
+}
+
+.btn_pasteboard.btn4 {
+    padding-left: 35px;
+}
+
+.toast {
+    visibility: hidden;
+    min-width: 50px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 8px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 40px;
+    transform: translateX(-50%);
+    font-size: 12px;
+}
+
+.toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+[popover]::backdrop {
+    backdrop-filter: blur(1.5px);
+}
+
+@media (max-width: 600px) {
+    body {
+        margin: 18px;
+        font-size: 14px;
+    }
+
+    #title>h1 {
+        font-size: 28px;
+        margin-left: 70px;
+        line-height: 30px;
+    }
+
+    #title>img {
+        width: 50px;
+        height: 50px;
+    }
+}
