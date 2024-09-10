@@ -9,250 +9,57 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-        <style>
-            html {
-                height: 94%;
-                
-            }
+        <link rel="stylesheet" type="text/css" href="styles_converter.css">
+        <script src="script_converter.js"></script>
 
-            body {
-                height: 100%;
-                margin: 0;
-                padding: 10px;
-                max-width: 1400px;
-                margin: 0 auto;
-                background-color: #FAF0E6;
-            }
+        
 
-            .container {
-                display: flex;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                height: 100%;
-                margin-top: 50px;
-            }
+        
 
-            .header-title {
-                font-size: 16px;
-                font-weight: bold;
-                text-align: center;
-            }
-
-            .header-column {
-                margin-bottom: 10px;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .header-buttons {
-                display: flex;
-                justify-content: flex-end;
-                gap: 16px;
-            }
-
-            .header-buttons > .button {
-                width: 100px;
-                height: 24px;
-            }
-
-            .column {
-                flex: 1;
-                box-sizing: border-box;
-                margin: 10px;
-                display: flex;
-                flex-direction: column;
-            }
-
-            .column.convert-btn {
-                width: 100px;
-                flex: none;
-                position: relative;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-            }
-
-            .column.convert-btn > .button {
-                width: 42%;
-            }
-
-            .json-field {
-                min-width: 350px;
-                flex-grow: 1;
-                resize: vertical;
-            }
-
-            @media (max-width: 600px) {
-                .container {
-                    flex-direction: column;
-                    align-items: center;
-                }
-
-                .column {
-                    margin: 10px 0;
-                }
-
-                .column.convert-btn {
-                    margin: 20px 0;
-                }
-            }
-        </style>
-        <script>
-            function readFile(type) {
-                const fileInput = document.getElementById('file-input-' + type);
-                const file = fileInput.files[0];
-                const reader = new FileReader();
-
-                reader.onload = function(event) {
-                    const textOutput = document.getElementById('field-' + type);
-                    const fileContent = event.target.result;
-
-                    switch (type) {
-                        case 'base64':
-                            try {
-                                const jsonObject = JSON.parse(fileContent);
-                                alert('Error: Base64 file should not be beautified JSON.');
-                                return;
-                            } catch (e) {
-                                textOutput.value = fileContent;
-                            }
-                            convertBase64ToJson()
-                            break;
-                        case 'json':
-                            try {
-                                const beautifiedJson = beautifyJson(fileContent);
-                                textOutput.value = beautifiedJson;
-                            } catch (e) {
-                                alert('Invalid JSON file.');
-                                return;
-                            }
-                            convertJsonToBase64()
-                            break;
-                        default:
-                            alert('Unsupported file type.');
-                            return;
-                    }
-                };
-
-                if (file) {
-                    reader.readAsText(file);
-                }
-            }
-    
-            function exportText(type) {
-                const textOutput = document.getElementById('text-output').value;
-                const blob = new Blob([textOutput], { type: 'text/plain' });
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = 'output' + '_' + type + '_' + '.txt';
-                link.click();
-            }
-
-            function convertBase64ToJson() {
-                const base64Input = document.getElementById('field-base64').value;
-                const jsonOutput = atob(base64Input);
-                const jsonField = document.getElementById('field-json');
-                jsonField.value = beautifyJson(jsonOutput);
-            }
-
-            function convertJsonToBase64() {
-                const jsonInput = document.getElementById('field-json').value;
-                const base64Output = btoa(jsonInput);
-                const base64Field = document.getElementById('field-base64');
-                base64Field.value = base64Output;
-            }
-
-            function copyToClipboard(textareaId) {
-                const textarea = document.getElementById(textareaId);
-                if (textarea.value.trim() === "") {
-                    alert('The field is empty. Nothing to copy.');
-                    return;
-                }
-                textarea.select();
-                document.execCommand('copy');
-                alert('Copied to clipboard');
-            }
-
-            function clearColumn(id) {
-                const textarea = document.getElementById('field-' + id);
-                textarea.value = '';
-
-                const inputId = 'file-input-' + id;
-                const fileInput = document.getElementById(inputId);
-                if (fileInput) {
-                    fileInput.value = '';
-                }
-            }
-
-            function beautifyJson(rawJson) {
-                const jsonObject = JSON.parse(rawJson);
-                return JSON.stringify(jsonObject, null, 4);
-            }
-
-            function formatJSON() {
-                const jsonField = document.getElementById('field-json');
-                jsonField.value = beautifyJson(jsonField.value);
-            }
-
-            function validateJson(jsonInput) {
-                try {
-                    JSON.parse(jsonInput);
-                    return true;
-                } catch (e) {
-                    return false;
-                }
-            }
-
-            function onChangeJsonOutput(jsonInput) {
-                const buttonJSONtoBASE64 = document.getElementById('convert-btn-json-to-base64');
-
-                let isValid = validateJson(jsonInput);
-                switch (isValid) {
-                    case true:
-                        buttonJSONtoBASE64.disabled = false;
-                        return
-                    case false:
-                        buttonJSONtoBASE64.disabled = true;
-                        return
-                }
-            }
-        </script>
+        
     </head>
     <body>
-        <div class="container">
-            <div class="column output base64">
-                <div class="header-column">
-                    <p class="header-title">BASE64</p>
-                    <input type="file" id="file-input-base64" accept=".txt" onchange="readFile('base64')">
-                    <div class="header-buttons">
-                        <button class="button" onclick="copyToClipboard('field-base64')">Copy</button>
-                        <button class="button" onclick="clearColumn('base64')">Clear</button>
-                    </div>    
-                </div>
-                <textarea class="json-field" id="field-base64"></textarea>
-            </div>
-            <div class="column convert-btn">
-                <button class="button" id="convert-btn-json-to-base64" onclick="convertJsonToBase64()">
-                    <
-                </button>
-                <button class="button" id="convert-btn-base64-to-json" onclick="convertBase64ToJson()">
-                    >
-                </button>
-            </div>
-            <div class="column output json">
-                <div class="header-column">
-                    <p class="header-title">JSON</p>
-                    <input type="file" id="file-input-json" accept=".txt" onchange="readFile('json')">
-                    <div class="header-buttons">
-                        <button class="button" onclick="formatJSON()">Format</button>
-                        <button class="button" onclick="copyToClipboard('field-json')">Copy</button>
-                        <button class="button" onclick="clearColumn('json')">Clear</button>
-                    </div>
-                </div>
-                <textarea class="json-field" id="field-json" oninput="onChangeJsonOutput(this.value)"></textarea>
+        <div class="navbar">
+            <div class="navbar-title">PokéClicker</div>
+            <div class="navbar-buttons">
+                <button class="navbar-button" href="editor.html">Editor</button>
+                <button class="navbar-button" href="converter.html">Converter</button>
             </div>
         </div>
+        <main>
+            <div class="container">
+                <div class="column output base64">
+                    <div class="header-column">
+                        <p class="header-title">BASE64</p>
+                        <input type="file" id="file-input-base64" accept=".txt" onchange="readFile('base64')">
+                        <div class="header-buttons">
+                            <button class="button" onclick="copyToClipboard('field-base64')">Copy</button>
+                            <button class="button" onclick="clearColumn('base64')">Clear</button>
+                        </div>    
+                    </div>
+                    <textarea class="json-field" id="field-base64"></textarea>
+                </div>
+                <div class="column convert-btn">
+                    <button class="button" id="convert-btn-json-to-base64" onclick="convertJsonToBase64()">
+                        <
+                    </button>
+                    <button class="button" id="convert-btn-base64-to-json" onclick="convertBase64ToJson()">
+                        >
+                    </button>
+                </div>
+                <div class="column output json">
+                    <div class="header-column">
+                        <p class="header-title">JSON</p>
+                        <input type="file" id="file-input-json" accept=".txt" onchange="readFile('json')">
+                        <div class="header-buttons">
+                            <button class="button" onclick="formatJSON()">Format</button>
+                            <button class="button" onclick="copyToClipboard('field-json')">Copy</button>
+                            <button class="button" onclick="clearColumn('json')">Clear</button>
+                        </div>
+                    </div>
+                    <textarea class="json-field" id="field-json" oninput="onChangeJsonOutput(this.value)"></textarea>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
