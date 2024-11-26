@@ -74,3 +74,24 @@ function showToast(message) {
         toast.className = toast.className.replace("show", "");
     }, 3000);
 }
+
+function switchMode(checked) {
+    if (checked == true) {
+        set_cookie("dark-mode", 1, 365);
+        document.getElementById("html").setAttribute("data-bs-theme", "dark");
+    } else {
+        delete_cookie("dark-mode");
+        document.getElementById("html").setAttribute("data-bs-theme", "light");
+    }
+}
+
+function set_cookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "; expires=" + date.toUTCString();
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function delete_cookie(name) {
+    document.cookie = name + '=; Max-Age=-99999999;';
+}

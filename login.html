@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Page</title>
+        <style>
+            html, body {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+        <script>
+            // Add your JavaScript code here
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordInput = document.getElementById('password');
+            const form = document.querySelector('form');
+            const apiKey = getCookie('apiKey');
+            
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+            });
+            
+            form.addEventListener('submit', function(event) {
+                 // Prevent form submission
+                event.preventDefault();
+
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                // Perform your login logic here
+                fetch('https://api.example.com/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: hash(email), 
+                        password: hash(password)
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the API response here
+                    console.log(data);
+                    // Save the API key in cookies with a 24-hour expiration
+                    const expirationDate = new Date();
+                    expirationDate.setTime(expirationDate.getTime() + (24 * 60 * 60 * 1000)); // 24 hours in milliseconds
+                    document.cookie = `apiKey=${data.apiKey}; expires=${expirationDate.toUTCString()}; path=/`;
+                })
+                .catch(error => {
+                    // Handle any errors that occurred during the API request
+                    console.error(error);
+                });
+                form.reset();
+            });
+            
+            function getCookie(cookieName) {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.startsWith(cookieName + '=')) {
+                        return cookie.substring(cookieName.length + 1);
+                    }
+                }
+                return null;
+            }
+            
+            if (apiKey) {
+                if (window.location.href != '/tvde.html') {
+                    window.location.href = '/tvde.html';
+                }
+            } else {
+                if (window.location.href != '/login.html') {
+                    window.location.href = '/login.html';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Login</h1>
+            <form>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" id="togglePassword">Show/Hide</button>
+                </div>
+                <div>
+                    <input type="checkbox" id="rememberPassword" name="rememberPassword">
+                    <label for="rememberPassword">Remember Password</label>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </body>
+</html>
