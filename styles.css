@@ -1,9 +1,59 @@
+/* Fonts */
+
+@font-face {
+    font-display: swap;
+    font-family: "GTW"; 
+    src: url('../fonts/GT-W-Regular.woff2') format('woff2'), url('../fonts/GT-W-Regular.woff') format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "GTW"; 
+    src: url('../fonts/GT-W-Regular-Oblique.woff2') format('woff2'), url('../fonts/GT-W-Regular-Oblique.woff') format('woff');
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "GTW"; 
+    src: url('../fonts/GT-W-Medium.woff2') format('woff2'), url('../fonts/GT-W-Medium.woff') format('woff');
+    font-weight: 500;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "GTW"; 
+    src: url('../fonts/GT-W-Medium-Oblique.woff2') format('woff2'), url('../fonts/GT-W-Medium-Oblique.woff') format('woff');
+    font-style: italic;
+    font-weight: 500;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "GTW"; 
+    src: url('../fonts/GT-W-Bold.woff2') format('woff2'), url('../fonts/GT-W-Bold.woff') format('woff');
+    font-weight: 700;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "GTW"; 
+    src: url('../fonts/GT-W-Bold-Oblique.woff2') format('woff2'), url('../fonts/GT-W-Bold-Oblique.woff') format('woff');
+    font-style: italic;
+    font-weight: 700;
+}
+
+/* Base */
+
 body {
     line-height: 1.4;
     max-width: 600px;
     margin: 40px auto;
-    font-family: "EB Garamond", "Garamond", serif;
-    font-size: 16px;
+    font-family: "GTW", system-ui, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
     background-color: #FAF0E6;
     position: relative;
 }
@@ -31,6 +81,8 @@ footer>#text {
     margin-top: 6px;
     margin-bottom: 6px;
 }
+
+/*  */
 
 #title {
     display: flex;
@@ -85,7 +137,7 @@ table tr td:first-child {
 table tr td:last-child {
     padding-right: 22px;
     width: 30%;
-    min-width: 120px;
+    min-width: 130px;
 }
 
 #companyDate {

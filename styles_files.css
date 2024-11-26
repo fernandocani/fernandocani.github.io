@@ -1,0 +1,202 @@
+/* Fonts */
+
+@font-face {
+    font-display: swap;
+    font-family: "GTW"; 
+    src: url('../fonts/GT-W-Regular.woff2') format('woff2'), url('../fonts/GT-W-Regular.woff') format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "GTW"; 
+    src: url('../fonts/GT-W-Regular-Oblique.woff2') format('woff2'), url('../fonts/GT-W-Regular-Oblique.woff') format('woff');
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "GTW"; 
+    src: url('../fonts/GT-W-Medium.woff2') format('woff2'), url('../fonts/GT-W-Medium.woff') format('woff');
+    font-weight: 500;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "GTW"; 
+    src: url('../fonts/GT-W-Medium-Oblique.woff2') format('woff2'), url('../fonts/GT-W-Medium-Oblique.woff') format('woff');
+    font-style: italic;
+    font-weight: 500;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "GTW"; 
+    src: url('../fonts/GT-W-Bold.woff2') format('woff2'), url('../fonts/GT-W-Bold.woff') format('woff');
+    font-weight: 700;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "GTW"; 
+    src: url('../fonts/GT-W-Bold-Oblique.woff2') format('woff2'), url('../fonts/GT-W-Bold-Oblique.woff') format('woff');
+    font-style: italic;
+    font-weight: 700;
+}
+
+/* Base */
+
+:root {
+    --accent-color: 102, 168, 245;
+    --accent-dark: rgba(var(--accent-color), 1);
+    --accent-medium: rgba(var(--accent-color), 0.4);
+    --accent-light: rgba(var(--accent-color), 0.1);
+    --black-color: 0, 0, 0;
+    --primary: rgba(var(--black-color), 0.85);
+    --secondary: rgba(var(--black-color), 0.60);
+    --tertiary: rgba(var(--black-color), 0.35);
+    --quaternary: rgba(var(--black-color), 0.1);
+    --quinary: rgba(var(--black-color), 0.05);
+}
+
+body {
+    line-height: 1.4;
+    max-width: 600px;
+    margin: 40px auto;
+    font: 17px "GTW", system-ui, sans-serif;
+    font-weight: 400;
+
+    background-color: #FAF0E6;
+    position: relative;
+}
+
+main {
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 46px;
+    
+    color: var(--secondary);
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    display: block !important;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #DDDDDD;
+    height: 30px;
+    position: fixed;
+    left: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+footer>#text {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+/* Main */
+
+a {
+    text-decoration: none;
+    color: var(--secondary);
+    box-shadow: inset 0 -2px 0 var(--accent-medium);
+    transition: all .35s;
+    transition-timing-function: cubic-bezier(.7, 0, .3, 1);
+    padding-bottom: 1px;
+}
+
+a:hover {
+    box-shadow: inset 0 -25px 0 var(--accent-light);
+}
+
+a.cta {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent-dark);
+    padding: 6px 14px 7px 14px;
+    border: 1px solid var(--accent-light);
+    border-radius: 20px;
+    box-shadow: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a.cta:hover {
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    border: 1px solid transparent;
+    box-shadow: none;
+}
+
+h1 a, h2 a, h3 a, h4 a {
+    color: var(--primary);
+}
+
+.arrow-left::before {
+    content: '← ';
+    font: 12px "system-ui", -apple-system, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    width: 12px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    display: inline;
+}
+
+.arrow-right::after {
+    content: ' →';
+    font: 12px "system-ui", -apple-system, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    width: 12px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    display: inline;
+}
+
+.arrow-tr::after {
+    content: ' ↗';
+    font: 12px "system-ui", -apple-system, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    width: 12px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    display: inline;
+}
+
+.arrow-right-before::before {
+    content: '→ ';
+    font: 12px "system-ui", -apple-system, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    width: 12px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    display: inline;
+}
+
+@media (max-width: 600px) {
+    body {
+        margin: 18px;
+        font-size: 14px;
+    }
+
+    #title>h1 {
+        font-size: 28px;
+        margin-left: 70px;
+        line-height: 30px;
+    }
+
+    #title>img {
+        width: 50px;
+        height: 50px;
+    }
+}
